@@ -18,7 +18,7 @@ server {
         proxy_buffers 256 16k;
         proxy_buffer_size 16k;
         proxy_read_timeout 600s;
-        proxy_pass http://mattermost.default:80;
+        proxy_pass http://mattermost:80;
     }
 
     location / {
@@ -34,6 +34,6 @@ server {
         proxy_buffers 256 16k;
         proxy_buffer_size 16k;
         proxy_read_timeout 600s;
-        proxy_pass http://mattermost.default:80;
+        proxy_pass http://mattermost:80;
     }
 }

@@ -2,6 +2,10 @@ FROM ubuntu:16.04
 
 ENV VERSION 4.3.1
 
+ADD config.json /opt/mattermost/config/config.json
+
+ADD entry.sh /entry.sh
+
 RUN apt-get update &&\
     apt-get install -y \
     wget &&\
@@ -13,10 +17,8 @@ RUN apt-get update &&\
     chown -R mattermost:mattermost /opt/mattermost &&\
     chmod -R g+w /opt/mattermost
 
-ADD config.json /opt/mattermost/config/config.json
-
 WORKDIR /opt/mattermost/bin
 
 USER mattermost
 
-ENTRYPOINT /opt/mattermost/bin/platform
+ENTRYPOINT /entry.sh
